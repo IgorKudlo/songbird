@@ -4,7 +4,6 @@
       <Quiz
           v-if="!finish"
           :birdsData="birds"
-          :randomValue="randomValue"
       />
       <Result v-else />
     </div>
@@ -34,8 +33,6 @@
       Result
     },
     created: function() {
-      this.randomValue = Math.floor(Math.random() * (5 + 1));
-
       axios.get(' ./birds.json')
         .then((response) => {
           this.birds = response.data.birds;
